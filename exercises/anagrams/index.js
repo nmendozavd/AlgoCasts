@@ -8,6 +8,46 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  // remove spaces and non-letter characters with regex, and lower case strings
+  var stringA = stringA.replace(/[^\w]/g, '').toLowerCase();
+  var stringB = stringB.replace(/[^\w]/g, '').toLowerCase();
+
+  // create character map of stringA
+  let objStrA = {};
+
+  for (var i = 0; i < stringA.length; i++) {
+    if (objStrA[stringA[i]] === undefined) {
+      objStrA[stringA[i]] = 1;
+    } else {
+      objStrA[stringA[i]]++;
+    }
+  }
+  
+  // create character map of stringB
+  let objStrB = {};
+  
+  for (var i = 0; i < stringB.length; i++) {
+    if(objStrB[stringB[i]] === undefined) {
+      objStrB[stringB[i]] = 1;
+    } else {
+      objStrB[stringB[i]]++;
+    }
+  }
+ 
+  // compare length of keys, if not equal, return false > we know that it is not an anagram
+  if (Object.keys(objStrA).length !== Object.keys(objStrB).length ) {
+    return false;
+  }
+    
+  // keys are equal, now compare values, if one value is not equal, then not an anagram
+  for (let char in objStrA) {
+    if (objStrA[char] !== objStrB[char]) {
+      return false
+    } 
+  }
+  // all keys AND values are equal, return true
+  return true;
+}
 
 module.exports = anagrams;
