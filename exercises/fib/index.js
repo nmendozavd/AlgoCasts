@@ -10,20 +10,24 @@
 
 
 function memoize(fn) {
+  // object to store arugments that have been called
   const cache = {};
   return function(...args) {
+    // if args has been called, we return it 
     if (cache[args]) {
       return cache[args];
     }
-
+    // if not we store it in result and call fib
     const result = fn.apply(this, args);
+    // add it to the cache object
     cache[args] = result;
+    // return that result
     return result;
   };
 }
 
 
-// solution 2 - Recursive
+// solution 2 - Recursive/Memoization 
 function fib(n) {
   if (n < 2) {
     return n;
