@@ -33,7 +33,7 @@ class Queue {
     }
     // save record that needs to be removed
     const record = this.second.pop()
-    // move back records to first stacj
+    // move back records to first stack
     while(this.second.peek() !== undefined) {
       const record2 = this.second.pop()
       this.first.push(record2)
