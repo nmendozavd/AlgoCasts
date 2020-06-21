@@ -182,6 +182,22 @@ class LinkedList {
     previous.next = node;
   }
 
+  forEach(fn) {
+    // set node to head
+    let node = this.head;
+    // create count variable
+    let count = 0;
+    // traverse through list
+    while (node !== null) {
+      // call function on each node and index (count)
+      fn(node, count);
+      // traverse through nodes
+      node = node.next;
+      // increment index
+      count++;
+    }
+  }
+
 }
 
 module.exports = { Node, LinkedList}
