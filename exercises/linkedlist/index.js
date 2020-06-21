@@ -159,6 +159,28 @@ class LinkedList {
 
   }
   
+  insertAt(data, index) {
+    // create a new node at provided index, if out of bounds, add to end of list
+
+    // edge case with no nodes 
+    if (this.head === null) {
+      this.head = new Node(data);
+      return;
+    }
+    // first element
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    // insert node anywhere in list || to get insert index that is out of bounds
+    // get previous node
+    const previous = this.getAt(index - 1) || this.getLast();
+    // create new node, pass data and the next node
+    const node = new Node(data, previous.next);
+    // connect previous node to new node
+    previous.next = node;
+  }
 
 }
 
