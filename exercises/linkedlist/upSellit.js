@@ -131,8 +131,14 @@ class Cart {
       // move onto next by assigning 'node' to next node
       current = current.next
     }
-
     return price;
+  }
+
+  applyCoupon (code) {
+    if (code === '10OFF') {
+      let price = this.total() - (this.total() * .10);
+      return price;
+    }
   }
 
 
@@ -141,7 +147,8 @@ class Cart {
 const list = new Cart({ name: 'Boots', image: 'boots_image.url', price: 12, quantity: 3 })
   .insertFirst({ name: 'Glasses', image: 'glasses_image.url', price: 13, quantity: 1 })
   .insertFirst({ name: 'Hat', image: 'hat_image.url', price: 25, quantity: 2 })
-  .getItems()
+  //.getItems()
+  .applyCoupon('10OFF');
 
 console.log(JSON.stringify(list));
 
