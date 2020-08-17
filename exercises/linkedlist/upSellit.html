@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      line-height: 1.3em;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+      background-color: #f4f4f4; 
+    }
+
+    .button {
+      cursor: default;
+      background: #c3c3c3; 
+      margin-left: 0.8571428571em; 
+      box-sizing: border-box;
+      border: 1px transparent solid;
+      border-radius: 5px;
+      color: white;
+      font-weight: 500;
+      padding: 1.4em 1.7em;
+      text-align: center;
+      position: relative;
+      
+    }
+
+    .text {
+      background-color: white;
+      color: #333333;
+      border-color: #cfcfcf;
+      border: 1px solid;
+      background-clip: padding-box;
+      border-radius: 5px;
+      display: inline block;
+      box-sizing: border-box;
+      width: 20%;
+      padding: 0.9285714286em 0.7857142857em;
+      word-break: normal;
+      line-height: inherit;
+      letter-spacing: normal;
+      outline: none;  
+
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: white; 
+    }
+  
+    .modal-content {
+      border-radius: 5px;
+      color: #333333;
+      border-color: #cfcfcf;
+      background-color:#f4f4f4;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Modal Discount Form  -->
+  <div class="container">
+    <input type="text" id="code" value='Discount Code' class="text">
+    <input type="submit" id="myBtn" value="Apply" class="button">
+  </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content message -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Your coupon was applied!</p>
+    </div>
+  </div>
+
+  <script>
+       // the modal
+      let modal = document.getElementById("myModal");
+
+      // the button that opens the modal
+      let btn = document.getElementById("myBtn");
+
+      // the <span> element that closes the modal
+      let span = document.getElementsByClassName("close")[0];
+
+      // user clicks the button, the modal opens with correct discount code message
+      btn.onclick = function () {
+        let code = document.getElementById("code").value;
+        if (code === '10OFF') {
+          modal.style.display = "block";
+        }
+      }
+
+      // When the user clicks on (x), modal closes
+      span.onclick = function () {
+        modal.style.display = "none";
+      }
+  </script>
+</body>
+</html>
