@@ -17,6 +17,24 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+
+  // go by rows first
+  for (let row = 0; row < n; row++) {
+    let stairs = '';
+    // go through columns now
+    for (let column = 0; column < n; column++) {
+      // pattern is in the columns / rows
+      if (column <= row) {
+        stairs += '#';
+      } else {
+        stairs += ' ';
+      }
+    }
+    console.log(stairs);
+  }
+
+
+}
 
 module.exports = steps;
